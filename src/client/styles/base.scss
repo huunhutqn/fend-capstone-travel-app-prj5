@@ -1,14 +1,185 @@
 body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  line-height: 1.2;
+}
+.trip-container {
+  margin: 0 auto;
 }
 
-main {
-    flex: 2;
+.trip-content {
+  display: grid;
+  grid-template-areas:
+    "tripThumb tripInfor tripInfor"
+    "tripThumb tripInfor tripInfor"
+    "tripInput tripInput tripInput";
+  grid-template-columns: 40% 30% 30%;
+  grid-template-rows: 1fr 1fr auto;
+  background-color: rgb(255, 250, 174);
+  position: relative;
+  margin-bottom: 20px;
+  padding: 20px;
+  button {
+    border-radius: 6px;
+    border: 2px solid rgb(182, 182, 182);
+    padding: 5px 10px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &__thumb {
+    grid-area: tripThumb;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+    img {
+      transform: translate(-50%, -50%);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      object-fit: cover;
+      //   width: 100%;
+    }
+  }
+  &__infor {
+    grid-area: tripInfor;
+    font-size: 16px;
+    margin-bottom: 10px;
+    padding: 20px 0 0 20px;
+    .trip-destination {
+      font-weight: 600;
+      font-size: 20px;
+    }
+    .trip-departing {
+      font-weight: 600;
+      font-size: 18px;
+    }
+    .trip-flight-infor {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .trip-action {
+      margin-bottom: 10px;
+      &__save-btn {
+        background-color: rgb(255, 254, 242);
+        &:hover {
+          background-color: rgb(255, 246, 146);
+        }
+      }
+      &__remove-btn {
+        background-color: transparent;
+        &:hover {
+          background-color: rgb(255, 254, 242);
+        }
+      }
+    }
+    .trip-weather-infor {
+      margin-bottom: 20px;
+      p {
+        margin-bottom: 10px;
+      }
+      #trip-weather-infor,
+      #trip-weather-description {
+        font-size: 14px;
+      }
+      #trip-weather-description {
+        font-style: italic;
+      }
+      i {
+        font-size: 12px;
+      }
+    }
+  }
+  &__input {
+    input,
+    select {
+      border-radius: 6px;
+      border: 1px solid rgb(182, 182, 182);
+      padding: 5px 10px;
+    }
+    grid-area: tripInput;
+    &__choose-country {
+      margin-bottom: 10px;
+    }
+    &__choose-departing {
+      margin-bottom: 20px;
+    }
+    &__gallery {
+      margin-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+      &-btn {
+        background-color: rgb(255, 254, 242);
+        &:hover {
+          background-color: rgb(255, 246, 146);
+        }
+        margin-bottom: 10px;
+        width: fit-content;
+      }
+      &-photos {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        &__item {
+          position: relative;
+          overflow: hidden;
+          flex-basis: 33%;
+          height: 250px;
+          margin-bottom: 10px;
+          &--img {
+            transform: translate(-50%, -50%);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
 }
 
-section {
-    max-width: 800px;
-    margin: 50px auto;
+@media (max-width: 425px) {
+  .trip-content {
+    padding: 10px;
+    grid-template-areas:
+      "tripThumb tripThumb tripThumb"
+      "tripInfor tripInfor tripInfor"
+      "tripInput tripInput tripInput";
+    &__thumb {
+      position: relative;
+      margin-bottom: 10px;
+    }
+    &__infor {
+      padding: 0;
+      .trip-action {
+        // text-align: center;
+      }
+    }
+    &__input {
+      &__choose-country {
+        select {
+          width: 60%;
+        }
+      }
+      &__choose-departing {
+        input {
+          width: 60%;
+        }
+      }
+      &__gallery {
+        &-photos {
+          &__item {
+            flex-basis: 100%;
+            height: 200px;
+            margin-bottom: 10px;
+            &--img {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
 }

@@ -1,6 +1,6 @@
 # Project Title
 
-Evaluate a News Article with Natural Language Processing Project
+FEND Capstone - Travel App Project
 
 ## Table of Contents
 
@@ -12,14 +12,26 @@ Evaluate a News Article with Natural Language Processing Project
 
 ## Introduction
 
-The motive of this project is to have you a taste of the environment and tools you will most likely come across in a front end role. Your focus should be to understand the role every tool and technology is playing in the overall architecture. You shouldn’t feel the need to memorize the particular commands, config setups, or structure that we create here. Every project in the industry will have its own custom setup, but if you understand the moving pieces, you will be able to get the gist of even far more complicated projects than this one.
+This project requires you to build out a travel app that, at a minimum, obtains a desired trip location & date from the user, and displays weather and an image of the location using information obtained from external APIs. Given that this is the Capstone project, it's highly encouraged for you to go above and beyond, adding additional functionality and customization to truly stand out with a project you are proud to have at the top of your portfolio!
 
 ## Usage
 
 Install packages:
 
 ```sh
-npm install
+npm install --legacy-peer-deps
+```
+
+or (if error, try this)
+
+```sh
+npm install --force
+```
+
+Build production:
+
+```sh
+npm run build-prod
 ```
 
 Start server:

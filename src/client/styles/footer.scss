@@ -1,0 +1,11 @@
+.trip-footer {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 10px;
+  &__slogan {
+    &--italic {
+      font-style: italic;
+      font-size: 16px;
+    }
+  }
+}

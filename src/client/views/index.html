@@ -2,41 +2,85 @@
 <html lang="en" dir="ltr">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evaluate a News Article with Natural Language Processing</title>
 </head>
 
 <body>
+    <div class="trip-container">
 
-    <header>
-        <div class="">
-            Logo
-        </div>
-        <div class="">
-            navigation
-        </div>
-    </header>
+        <!-- Header -->
+        <header class="trip-header">
+            <div class="trip-header__title">
+                Travel Planner
+            </div>
+            <div class="trip-header__action">
+                <h3>My Trips:</h3>
+                <!-- <button class="trip-header__action__add-trip-btn"><i class="fa-solid fa-plus"></i> add trip</button> -->
+            </div>
+        </header>
 
-    <main>
-        <section>
-            <form class="">
-                <input id="name" type="text" name="input" value="" placeholder="URL Sentiment Analysis">
-                <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)">
-            </form>
-        </section>
+        <!-- Main content -->
+        <main class="trip-content">
+            <section class="trip-content__thumb">
+                <img id="trip-thumb" src="https://www.unfe.org/wp-content/uploads/2019/04/SM-placeholder.png"
+                    alt="Trip thumbnail">
+            </section>
 
-        <section>
-            <strong>Form Results:</strong>
-            <div id="agreement"></div>
-            <div id="irony"></div>
-            <div id="subjectivity"></div>
-        </section>
-    </main>
+            <section class="trip-content__infor">
+                <div class="trip-destination">
+                    My trip to: <span id="trip-destination"></span>
+                </div>
+                <div class="trip-departing">
+                    Departing: <span id="trip-departing"></span>
+                </div>
+                <hr>
+                <div class="trip-flight-infor">
+                    <p>Flight info:</p>
+                    <div class="trip-flight-infor__time-flight">
+                        <div class="trip-flight-infor__time-flight--from">VN 3:00PM<br>Flight 22 UDCITY AIR</div>
+                        <div class="trip-flight-infor__time-flight--to">VN 3:00PM<br>Flight 44 UDCITY AIR</div>
+                    </div>
+                </div>
+                <div class="trip-action">
+                    <button class="trip-action__save-btn">save trip</button>
+                    <button class="trip-action__remove-btn">remove trip</button>
+                </div>
+                <div class="trip-weather-infor">
+                    <p>Typical weather for then is:</p>
+                    <p id="trip-weather-infor"></p>
+                    <p id="trip-weather-description"></p>
+                </div>
+            </section>
 
-    <footer>
-        <p>This is a footer</p>
-    </footer>
+            <section class="trip-content__input">
+                <div class="trip-content__input__choose-country">
+                    <p>Choose destination country:</p>
+                    <select name="trip-country" id="trip-destination-input"></select>
+                </div>
+                <div class="trip-content__input__choose-departing">
+                    <p>Choose departing time:</p>
+                    <input type="date" id="trip-departing-input">
+                </div>
+                <div class="trip-content__input__gallery">
+                    <button class="trip-content__input__gallery-btn" onclick="Client.showGalleryPhotos()">See more
+                        destination photos?</button>
+                    <div class="trip-content__input__gallery-photos" id="trip-content-gallery"></div>
+                </div>
+            </section>
+        </main>
 
+        <!-- Footer -->
+        <footer class="trip-footer">
+            <p class="trip-footer__slogan">The joy of home anywhere in the world
+                <br><span class="trip-footer__slogan--italic">Easy booking, easy living</span>
+            </p>
+        </footer>
+    </div>
+
+    <!-- Register service worker -->
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
